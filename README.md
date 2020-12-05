@@ -1,28 +1,21 @@
-﻿# [enLKB](https://github.com/Qful/enLKB)
+﻿# [Qi](https://github.com/Qful/Qi)
 
-[![sites](Qful/qitas.png)](http://www.Qful.net)
+[![sites](http://182.61.61.133/link/resources/Qful.png)](http://www.Qful.net)
+## [项目简介](https://github.com/Qful/Qi)
 
-## [enLKB简介](https://github.com/Qful/enLKB)
+[Qi](https://github.com/Qful/Qi) 是无线充电联盟（Wireless Power Consortium，WPC）推出的“无线充电”标准，具备便捷性和通用性两大特征。
 
-激光投影键盘，通过光学设计完成键盘投影，enLKB作为激光键盘的核心子系统，用于产生投影光路和接收并解析按键事件，工程将继承多个控制子系统。
+### 主要通讯流程
 
-本工程作为其他项目集成的一个组件，例如键盘和集成电脑设备等，同时也可以作为独立的工程实体进行开发。
+* 1，上电后发射端线圈发射脉冲信号，然后接收端线圈收到信号后返回一个身份识别包信号，然后在发送配置包，比如功率设置
 
-[![sites](Qful/LKB.jpg)](http://www.Qful.net)
+* 2，当时发射线圈接收到接收线圈发来的信号就可以正常工作了，这个时候接收线圈必须在规定时间内发送信号强度包来调整功率，如果在规定时间内发射线圈没有收到信号就认为接收线圈已经不在发射板上方，导致重新建立握手
 
-就目前的激光投影键盘而言实用性还很差，体现在按键的准确度和速度上，这个需要通过更强大的算力和算法解决传感器的识别问题，而这部分正是技术发展的方向，已经可以被解决只是还没有被应用到这个领域而已。
 
-### [工程目录](https://github.com/Qful)
+#### qi协议有bpp/epp两种（三星私有协议pdde）
 
-- [文档](docs/)
-- [资源](src/)
-- [工程](project/)
+bpp（Basic power profile 即基础电源配置文件）可以5w充电，在5w的需求上epp（Extended power profile 拓展电源配置文件)可以支持最高10w的充电，目前qi协议最高的是epp 15w。
 
-### [Q资源](https://github.com/Qful/enLKB)
+不过需要注意的是，当前的高功率无线充电技术属于厂商的私有协议，不同品牌的私有无线充电协议无法兼容，仅能实现对于Qi标准的无线充电。因此，用户若想体验最舒适的无线充电，需要购买对应品牌的无线充电底座。
 
-- [Q系统](https://github.com/OS-Q)
-- [Q硬件](https://github.com/sochub)
-- [Q智慧](https://github.com/tfzoo)
-- [Q品质](https://github.com/qitas)
-
-### www.Qful.net
+高功率无线充电在手机上使用需要解决两方面的问题：其一是无线充电线圈对手机的影响；其二是无线充电底座的散热问题。
